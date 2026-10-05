@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create a Comic • {{ app_name }}
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <div>
+
+        <p class="eyebrow">
+            CREATE • WRITE • ILLUSTRATE
+        </p>
+
+        <h1>
+            Turn one idea into a comic.
+        </h1>
+
+        <p class="lead">
+            Describe your story and ComicCraft
+            builds a five-panel comic with narration,
+            dialogue, illustrations and a PDF.
+        </p>
+
+    </div>
+
+</section>
+
+
+{% if error %}
+
+<div class="alert error">
+
+    <strong>
+        Generation failed:
+    </strong>
+
+    {{ error }}
+
+</div>
+
+{% endif %}
+
+
+<form
+    class="card form-grid"
+    method="post"
+    action="/generate"
+>
+
+    <label class="full">
+
+        Story Prompt
+
+        <textarea
+            name="story_prompt"
+            required
+            maxlength="2000"
+            placeholder="A brave fox exploring an enchanted forest..."
+        ></textarea>
+
+    </label>
+
+
+    <label>
+
+        Main Character Name
+
+        <input
+            name="character_name"
+            required
+            maxlength="80"
+            placeholder="Luna"
+        >
+
+    </label>
+
+
+    <label>
+
+        Setting
+
+        <select name="setting">
+
+            <option>
+                Enchanted forest
+            </option>
+
+            <option>
+                School
+            </option>
+
+            <option>
+                Future city
+            </option>
+
+            <option>
+                Space station
+            </option>
+
+            <option>
+                Village
+            </option>
+
+        </select>
+
+    </label>
+
+
+    <label>
+
+        Story Tone
+
+        <select name="tone">
+
+            <option>
+                Light-hearted
+            </option>
+
+            <option>
+                Dramatic
+            </option>
+
+            <option>
+                Poetic
+            </option>
+
+            <option>
+                Funny
+            </option>
+
+            <option>
+                Adventurous
+            </option>
+
+        </select>
+
+    </label>
+
+
+    <label>
+
+        Art Style
+
+        <select name="art_style">
+
+            <option>
+                Comic book
+            </option>
+
+            <option>
+                Anime
+            </option>
+
+            <option>
+                Pixel art
+            </option>
+
+            <option>
+                Realistic
+            </option>
+
+            <option>
+                Watercolor
+            </option>
+
+        </select>
+
+    </label>
+
+
+    <button
+        class="primary full"
+        type="submit"
+    >
+        Generate My Comic
+    </button>
+
+</form>
+
+
+<section class="tips card">
+
+    <h2>
+        Tips for better results
+    </h2>
+
+    <ul>
+
+        <li>
+            Give the story a clear goal or conflict.
+        </li>
+
+        <li>
+            Use a memorable character name.
+        </li>
+
+        <li>
+            Describe the setting and mood you want to see.
+        </li>
+
+    </ul>
+
+</section>
+
+{% endblock %}
